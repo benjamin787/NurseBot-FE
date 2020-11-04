@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import './style.css'
 
 import Messages from './messages'
 
@@ -10,9 +11,9 @@ const Chat = props => {
     const [responses, setResponses] = useState([])
     const [currentMessage, setCurrentMessage] = useState('')
 
-    const handleMessageSend = message => {
+    const handleMessageSend = async message => {
         const data = { message }
-        axios.post(backendURL, data)
+        await axios.post(backendURL, data)
             .then(response => {
                 const responseData = {
                     text: response.data['message']['fulfillmentText'] != ''
