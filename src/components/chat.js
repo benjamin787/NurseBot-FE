@@ -11,12 +11,13 @@ const Chat = props => {
     const [responses, setResponses] = useState([])
     const [currentMessage, setCurrentMessage] = useState('')
 
-    const handleMessageSend = async message => {
+    const handleMessageSend = message => {
         const data = { message }
-        await axios.post(backendURL, data)
+        axios
+            .post(backendURL, data)
             .then(response => {
                 const responseData = {
-                    text: response.data['message']['fulfillmentText'] != ''
+                    text: response.data['message']['fulfillmentText'] !== ''
                         ? response.data['message']['fulfillmentText']
                         : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
                     isBot: true
@@ -34,7 +35,7 @@ const Chat = props => {
             text: currentMessage,
             isBot: false
         }
-        if (event.key == 'Enter') {
+        if (event.key === 'Enter') {
             setResponses([...responses, message])
             handleMessageSend(message.text)
             setCurrentMessage('')
@@ -54,7 +55,7 @@ const Chat = props => {
                         value={currentMessage}
                         onChange={handleTyping}
                         onKeyDown={handleSubmit}
-                        placeholder="Hi! How can I help you today?"
+                        placeholder="Enter message here."
                         className="messageInputField"
                     />
                     <div onTap={handleSubmit}>
