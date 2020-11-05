@@ -12,13 +12,17 @@ const Chat = props => {
     const [currentMessage, setCurrentMessage] = useState('')
 
     const handleMessageSend = message => {
-        const data = { message }
+        const data = { 
+            headers: {"Access-Control-Allow-Origin": true},
+            body: message
+        }
         axios
             .post(backendURL, data)
             .then(response => {
                 const responseData = {
-                    text: response.data['message']['fulfillmentText'] !== ''
-                        ? response.data['message']['fulfillmentText']
+                    text: (response.queryResult.allRequiredParamsPresent &&
+                        response.queryResult.fulfillmentText !== '')
+                        ? response.queryResult.fulfillmentText
                         : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
                     isBot: true
                 }
@@ -91,8 +95,6 @@ const Chat = props => {
             </div>
         </div>
     )
-
-
 }
 
 export default Chat
