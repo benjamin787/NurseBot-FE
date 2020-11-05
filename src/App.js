@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import * as fauci from '../public/assets/fauci-advisory-council.jpg'
+import * as fauci from './assets/fauci-advisory-council.jpg'
 import Chat from './components/chat'
 
 export default function App() {
