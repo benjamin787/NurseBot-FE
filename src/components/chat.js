@@ -6,7 +6,7 @@ import Messages from './messages'
 
 const Chat = props => {
 
-    const backendURL = 'https://covid-nurse-bot.herokuapp.com/'
+    const backendURL = 'https://covid-nurse-bot.herokuapp.com/chatbot'
 
     const [responses, setResponses] = useState([])
     const [currentMessage, setCurrentMessage] = useState('')
