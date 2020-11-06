@@ -13,8 +13,8 @@ const Chat = props => {
 
     const handleMessageSend = message => {
         const data = { 
-            headers: {"Access-Control-Allow-Origin": true},
-            body: message
+            headers: {"Origin": "https://covid-nurse-bot.web.app"},
+            body: JSON.stringify(message)
         }
         axios
             .post(backendURL, data)
