@@ -6,9 +6,9 @@ import Chat from './components/chat'
 export default function App() {
   return (
     <div className="App">
-      <header style={{paddingTop: '3rem', paddingBottom: '2rem', paddingLeft: '5rem'}}>
+      <header style={{paddingTop: '3rem', paddingBottom: '2rem', paddingLeft: '5rem', display: 'flex'}}>
         NurseBot
-        <img src={fauci} alt='Fauci' style={{paddingLeft: '2rem'}}/>
+        <img className='Fauci' src={fauci} alt='Fauci' />
       </header>
       <Chat />
     </div>

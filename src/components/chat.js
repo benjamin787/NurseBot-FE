@@ -20,15 +20,16 @@ const Chat = props => {
             isBot: true
         }
         setResponses([...responses, responseData])
+        console.log('responses', responses)
     }
 
     const handleMessageSend = message => {
-        const data = { 
+        const post = { 
             headers: {"Origin": "https://covid-nurse-bot.web.app"},
             body: JSON.stringify({message: message})
         }
         axios
-            .post(backendURL, data)
+            .post(backendURL, post)
             .then(({data}) => {
                 console.log('response', data)
                 handleDisplay(data)
