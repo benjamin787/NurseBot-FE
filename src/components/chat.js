@@ -14,11 +14,12 @@ const Chat = props => {
     const handleMessageSend = message => {
         const data = { 
             headers: {"Origin": "https://covid-nurse-bot.web.app"},
-            body: JSON.stringify(message)
+            body: JSON.stringify({message: message})
         }
         axios
             .post(backendURL, data)
             .then(response => {
+                console.log('response', response)
                 const responseData = {
                     text: (response.queryResult.allRequiredParamsPresent &&
                         response.queryResult.fulfillmentText !== '')
