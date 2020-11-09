@@ -21,12 +21,16 @@ const Chat = props => {
             .then(response => {
                 console.log('response', response)
                 const responseData = {
-                    text: (response.queryResult.allRequiredParamsPresent &&
-                        response.queryResult.fulfillmentText !== '')
-                        ? response.queryResult.fulfillmentText
-                        : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
+                    text: "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
                     isBot: true
                 }
+                // const responseData = {
+                //     text: (response.queryResult.allRequiredParamsPresent &&
+                //         response.queryResult.fulfillmentText !== '')
+                //         ? response.queryResult.fulfillmentText
+                //         : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
+                //     isBot: true
+                // }
                 setResponses([...responses, responseData])
             }).catch(error => {
                 console.log('ERROR:', error)
