@@ -29,7 +29,10 @@ const Chat = props => {
         }
         axios
             .post(backendURL, data)
-            .then(handleDisplay)
+            .then(response => {
+                console.log('response', response)
+                handleDisplay(response)
+            })
                 // response => {
                 // console.log('response', response)
                 // // const responseData = {
