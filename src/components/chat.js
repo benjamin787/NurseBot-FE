@@ -11,6 +11,17 @@ const Chat = props => {
     const [responses, setResponses] = useState([])
     const [currentMessage, setCurrentMessage] = useState('')
 
+    const handleDisplay = response => {
+        const responseData = {
+            text: (response.queryResult.allRequiredParamsPresent &&
+                response.queryResult.fulfillmentText !== '')
+                ? response.queryResult.fulfillmentText
+                : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
+            isBot: true
+        }
+        setResponses([...responses, responseData])
+    }
+
     const handleMessageSend = message => {
         const data = { 
             headers: {"Origin": "https://covid-nurse-bot.web.app"},
@@ -18,12 +29,13 @@ const Chat = props => {
         }
         axios
             .post(backendURL, data)
-            .then(response => {
-                console.log('response', response)
-                const responseData = {
-                    text: "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
-                    isBot: true
-                }
+            .then(handleDisplay)
+                // response => {
+                // console.log('response', response)
+                // // const responseData = {
+                // //     text: "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
+                // //     isBot: true
+                // // }
                 // const responseData = {
                 //     text: (response.queryResult.allRequiredParamsPresent &&
                 //         response.queryResult.fulfillmentText !== '')
@@ -31,8 +43,8 @@ const Chat = props => {
                 //         : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
                 //     isBot: true
                 // }
-                setResponses([...responses, responseData])
-            }).catch(error => {
+                // setResponses([...responses, responseData])
+            .catch(error => {
                 console.log('ERROR:', error)
             })
     }
