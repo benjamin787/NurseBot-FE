@@ -11,6 +11,7 @@ export default function App() {
         <img className='Fauci' src={fauci} alt='Fauci' />
       </header>
       <Chat />
+      <footer></footer>
     </div>
   );
 }
