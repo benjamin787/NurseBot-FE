@@ -29,27 +29,10 @@ const Chat = props => {
         }
         axios
             .post(backendURL, data)
-            .then(response => {
-                console.log('response', response)
-                handleDisplay(response)
-            })
-                // response => {
-                // console.log('response', response)
-                // // const responseData = {
-                // //     text: "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
-                // //     isBot: true
-                // // }
-                // const responseData = {
-                //     text: (response.queryResult.allRequiredParamsPresent &&
-                //         response.queryResult.fulfillmentText !== '')
-                //         ? response.queryResult.fulfillmentText
-                //         : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
-                //     isBot: true
-                // }
-                // setResponses([...responses, responseData])
-            .catch(error => {
-                console.log('ERROR:', error)
-            })
+            .then(({data}) => {
+                console.log('response', data)
+                handleDisplay(data)
+            }).catch(error => console.log('ERROR:', error))
     }
 
     const handleTyping = event => setCurrentMessage(event.target.value)
