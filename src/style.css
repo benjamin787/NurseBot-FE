@@ -1,15 +1,15 @@
 .App {
-    background-color: rgb(168, 236, 228);
+    background-color: rgb(195, 238, 233);
     display: grid;
-    grid-template-columns: 10% 20% 45% 25%;
+    grid-template-columns: 14% 20% 45% 21%;
     grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 42% 3% 5% 15%;
 }
 
 .Fauci {
     padding-left: 2rem;
     border-radius: 4rem;
-    max-width: 7rem;
-    height:auto;
+    /* max-width: 7rem;
+    height:auto; */
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 3;
@@ -32,9 +32,9 @@ header {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 20px;
-    background-color: hsl(55,65%,89%);
+    background-color: rgb(238, 236, 215);
     grid-row-start: 7;
-    grid-row-end: span 8;
+    grid-row-end: 8;
     grid-column-start: 2;
     grid-column-end: span 3;
 }

@@ -7,8 +7,8 @@ export default function App() {
   return (
     <div className="App">
       <header style={{paddingTop: '3rem', paddingBottom: '2rem', paddingLeft: '5rem', display: 'flex'}}>
-        NurseBot
         <img className='Fauci' src={fauci} alt='Fauci' />
+        <h1>NurseBot</h1>
       </header>
       <Chat />
       <footer></footer>
