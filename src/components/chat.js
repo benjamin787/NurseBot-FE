@@ -13,8 +13,7 @@ const Chat = props => {
 
     const handleDisplay = response => {
         const responseData = {
-            text: (response.queryResult.allRequiredParamsPresent &&
-                response.queryResult.fulfillmentText !== '')
+            text: response.queryResult.fulfillmentText !== ''
                 ? response.queryResult.fulfillmentText
                 : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
             isBot: true
