@@ -5,11 +5,16 @@
     grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 42% 3% 5% 15%;
 }
 
+.popover-container {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 5;
+    grid-row-end: span 9;
+}
+
 .Fauci {
     padding-left: 2rem;
     border-radius: 4rem;
-    /* max-width: 7rem;
-    height:auto; */
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 3;
