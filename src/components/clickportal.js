@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Portal, ClickAwayListener } from '@material-ui/core'
-import { MenuBookIcon } from '@material-ui/icons'
+import MenuBookIcon from '@material-ui/icons/MenuBook'
 
 export default function ClickPortal() {
     const [open, setOpen] = useState(false) 
