@@ -1,11 +1,12 @@
 .App {
-    background-color: rgb(195, 238, 233);
+    background-color: rgb(220, 236, 235);
     display: grid;
     grid-template-columns: 14% 20% 45% 21%;
     grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 42% 3% 5% 15%;
 }
 
 .popover-container {
+    display: grid;
     grid-column-start: 1;
     grid-column-end: span 2;
     grid-row-start: 5;
@@ -13,8 +14,9 @@
 }
 
 .Fauci {
-    padding-left: 2rem;
-    border-radius: 4rem;
+    /* padding-left: 2rem;
+    border-radius: 4rem; */
+    display: grid;
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 3;
@@ -23,9 +25,8 @@
 
 h1, p {
     font-family: Lato;
-}
-
-header {
+    text-align: center;
+    display: grid;
     grid-row-start: 1;
     grid-row-end: span 4;
 }
@@ -38,6 +39,7 @@ header {
     transition: 0.3s;
     border-radius: 20px;
     background-color: rgb(238, 236, 215);
+    display: grid;
     grid-row-start: 7;
     grid-row-end: 8;
     grid-column-start: 2;
@@ -45,6 +47,7 @@ header {
 }
 
 footer {
+    display: grid;
     grid-row-start: 10;
     grid-row-end: span 11;
 }
@@ -61,11 +64,11 @@ footer {
     margin: 30px;
 }
 
-.botContainer {
+/* .botContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 .messagesSection {
     height: 90%;

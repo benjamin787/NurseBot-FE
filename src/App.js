@@ -10,7 +10,7 @@ export default function App() {
     <div className="App">
         <h1>NurseBot</h1>
         <div>
-          <Avatar alt='Fauci' src='./assets/fauci-advisory-council.jpg' />
+          <Avatar alt='Fauci' src='./assets/fauci-advisory-council.jpg' className='Fauci' />
           <span className='popover-container'>
             <ClickPortal />
           </span>
@@ -20,5 +20,3 @@ export default function App() {
     </div>
   );
 }
-{/* <img className='Fauci' src={fauci} alt='Fauci' /> */}
-{/* <header style={{paddingTop: '3rem', paddingBottom: '2rem', paddingLeft: '5rem'}}> */}
