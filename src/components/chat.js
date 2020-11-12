@@ -26,7 +26,8 @@ const Chat = props => {
 
     const handleMessageSend = message => {
         const post = { 
-            headers: {"Origin": "https://covid-nurse-bot.web.app"},
+            // headers: {"Origin": "https://covid-nurse-bot.web.app"},
+            headers: {"Access-Control-Allow-Origin": "https://covid-nurse-bot.web.app"},
             body: JSON.stringify({message: message})
         }
         axios
