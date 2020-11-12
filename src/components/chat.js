@@ -4,11 +4,13 @@ import '../style.css'
 
 import Messages from './messages'
 
+const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
+
 const Chat = props => {
 
-    const backendURL = 'https://covid-nurse-bot.herokuapp.com/chatbot'
+    const backendURL = 'https://covid-nurse-bot.herokuapp.com/serve'
 
-    const [responses, setResponses] = useState([])
+    const [responses, setResponses] = useState([welcomeMessage])
     const [currentMessage, setCurrentMessage] = useState('')
 
     const handleDisplay = response => {
