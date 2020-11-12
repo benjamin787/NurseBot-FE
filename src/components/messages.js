@@ -3,14 +3,13 @@ import '../style.css'
 import Message from './message'
 
 const Messages = ({ messages }) => {
+
+    let i = 0;
     return (
         <div className='messagesSection'>
             {messages.map(message => {
-                return (
-                    <div className='messagesContainer'>
-                        <Message message={message} />
-                    </div>
-                )
+                i++
+                return <Message key={i} message={message} />
             })}
         </div>
     )

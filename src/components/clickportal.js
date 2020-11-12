@@ -12,7 +12,7 @@ export default function ClickPortal() {
     return (
         <ClickAwayListener onClickAway={handleClick} >
             <div>
-                <MenuBookIcon type='button' onClick={handleClick} >
+                <MenuBookIcon className='icon' fontSize='large' onClick={handleClick} >
                     popover here
                 </MenuBookIcon>
                 {open ? (
