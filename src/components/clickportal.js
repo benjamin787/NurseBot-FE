@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Portal, ClickAwayListener } from '@material-ui/core'
+import { ClickAwayListener } from '@material-ui/core'
 import MenuBookIcon from '@material-ui/icons/MenuBook'
 
 export default function ClickPortal() {
@@ -21,7 +21,7 @@ export default function ClickPortal() {
                 </MenuBookIcon>
                 {open ? (
                     <span>
-                        links here
+                        Directions to closest test site.
                     </span>
                 ) : null}
             </div>

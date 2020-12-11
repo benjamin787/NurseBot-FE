@@ -40,14 +40,16 @@ const Chat = props => {
     const handleTyping = event => setCurrentMessage(event.target.value)
     
     const handleSubmit = event => {
-        const message = {
-            text: currentMessage,
-            isBot: false
-        }
+        event.stopPropagation();
+
         if (event.key === 'Enter') {
+            const message = {
+                text: currentMessage,
+                isBot: false
+            }
             setResponses([...responses, message])
-            handleMessageSend(message.text)
-            setCurrentMessage('')
+                .then(setCurrentMessage(''))
+                .then(handleMessageSend(message.text))
         }
     }
 

@@ -36,7 +36,8 @@ header > h1 {
 }
 
 .icon {
-    color: hsl(186, 43%, 47%)
+    color: hsl(186, 43%, 47%);
+    transform: scale(2.1);
     /* width: 4rem;
     height: auto; */
 }
@@ -150,7 +151,6 @@ footer {
     align-items: right;
     float: right;
 }
-
 
 .messageCard {
     padding: 10px;
