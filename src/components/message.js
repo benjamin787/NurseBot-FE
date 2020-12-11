@@ -3,15 +3,15 @@ import '../style.css'
 
 const Message = ({ message }) => {
     return (
-        <div className="messageCard">
+        <span className="messageCard">
             {message.isBot
                 ? ( <div className="botCard">
                     <p style={{
-                        paddingLeft: "16px",
-                        paddingRight: "10px",
+                        paddingLeft: "13px",
+                        paddingRight: "8px",
                         fontFamily: "Montserrat",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
                         fontWeight: 700
                         }} >
                         {message.text}
@@ -19,17 +19,19 @@ const Message = ({ message }) => {
                 </div> )
                 : ( <div className="userCard">    
                     <p style={{
-                        paddingLeft: "16px",
-                        paddingRight: "10px",
+                        paddingLeft: "13px",
+                        paddingRight: "8px",
                         fontFamily: "Montserrat",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
                         fontWeight: 700
                     }} >
                         {message.text}
                     </p>
                 </div>
             )}
-            </div>
-        );
-    }
+        </span>
+    );
+}
 
 export default Message

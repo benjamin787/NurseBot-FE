@@ -4,12 +4,13 @@ import Message from './message'
 
 const Messages = ({ messages }) => {
 
-    let i = 0;
     return (
         <div className='messagesSection'>
             {messages.map(message => {
-                i++
-                return <Message key={i} message={message} />
+                return <Message
+                    key={(Math.floor(Math.random() * 764) + 2)}
+                    message={message}
+                />
             })}
         </div>
     )
