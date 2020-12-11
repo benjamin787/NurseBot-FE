@@ -6,21 +6,23 @@ export default function ClickPortal() {
     const [open, setOpen] = useState(false) 
 
     const handleClick = () => {
-        setOpen(!open)
+        setOpen(true)
+    }
+
+    const handleClickAway = () => {
+        setOpen(false)
     }
 
     return (
-        <ClickAwayListener onClickAway={handleClick} >
+        <ClickAwayListener onClickAway={handleClickAway} >
             <div>
-                <MenuBookIcon className='icon' fontSize='large' onClick={handleClick} >
+                <MenuBookIcon type='button' className='icon' fontSize='large' onClick={handleClick} >
                     popover here
                 </MenuBookIcon>
                 {open ? (
-                    <Portal>
-                        <div>
-                            links here
-                        </div>
-                    </Portal>
+                    <span>
+                        links here
+                    </span>
                 ) : null}
             </div>
         </ClickAwayListener>

@@ -15,7 +15,7 @@ export default function App() {
         <ClickPortal />
       </span>
       <Chat />
-      <footer></footer>
+      <footer><p>Copyright: Science</p></footer>
     </div>
   );
 }
