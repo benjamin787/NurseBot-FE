@@ -29,6 +29,7 @@ const Chat = props => {
             headers: {"Access-Control-Allow-Origin": "https://covid-nurse-bot.web.app"},
             body: JSON.stringify({message: message})
         }
+        setCurrentMessage('')
         axios
             .post(backendURL, post)
             .then(({data}) => {
@@ -48,12 +49,7 @@ const Chat = props => {
                 isBot: false
             }
             setResponses([...responses, message])
-            setCurrentMessage('')
-            try {
-                handleMessageSend(message.text)
-            } catch(error) {
-                console.log('submit error',error)
-            }
+            return handleMessageSend(message.text)
         }
     }
 
