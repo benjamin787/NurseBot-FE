@@ -37,7 +37,7 @@ const Chat = props => {
             }).catch(error => console.log('ERROR:', error))
     }
 
-    const handleTyping = event => setCurrentMessage(event.target.value)
+    const handleTyping = async event => setCurrentMessage(event.target.value)
     
     const handleSubmit = event => {
         event.stopPropagation();
@@ -48,8 +48,12 @@ const Chat = props => {
                 isBot: false
             }
             setResponses([...responses, message])
-                .then(setCurrentMessage(''))
-                .then(handleMessageSend(message.text))
+            setCurrentMessage('')
+            try {
+                handleMessageSend(message.text)
+            } catch(error) {
+                console.log('submit error',error)
+            }
         }
     }
 
