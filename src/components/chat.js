@@ -65,17 +65,6 @@ const Chat = props => {
                     placeholder="Enter message here."
                     className="messageInputField"
                 />
-                <div onClick={handleSubmit}>
-                    <svg
-                        style={{ marginRight: "10px" }}
-                        id="Capa_1"
-                        enableBackground="new 0 0 512.004 512.004"
-                        height="25"
-                        viewBox="0 0 512.004 512.004"
-                        width="25"
-                        xmlns="http://www.w3.org/2000/svg"
-                    />
-                </div>
             </div>
         </div>
     )
