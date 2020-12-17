@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../style.css'
 
@@ -10,8 +10,13 @@ const Chat = props => {
 
     const backendURL = 'https://covid-nurse-bot.herokuapp.com/serve'
 
+    const [waiting, setWaiting] = useState(false)
     const [responses, setResponses] = useState([welcomeMessage])
     const [currentMessage, setCurrentMessage] = useState('')
+
+    const awaitingBot = waiting === true;
+
+    useEffect(() => handleMessageSend(currentMessage),[awaitingBot])
 
     const handleDisplay = response => {
         const responseData = {
@@ -49,7 +54,7 @@ const Chat = props => {
                 isBot: false
             }
             setResponses([...responses, message])
-            return handleMessageSend(message.text)
+            setWaiting(true)
         }
     }
 
