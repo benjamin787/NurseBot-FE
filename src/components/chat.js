@@ -16,17 +16,25 @@ const Chat = props => {
 
     const awaitingBot = waiting === true;
 
-    useEffect(() => handleMessageSend(currentMessage),[awaitingBot])
+    const defaultPhrase = {response:
+        {queryResult:
+            {fulfillmentText:
+                "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
+            }
+        }
+    }
 
+    useEffect(() => handleMessageSend(currentMessage), [awaitingBot])
+
+    // text: response.queryResult.fulfillmentText !== ''
+    //     ? response.queryResult.fulfillmentText
+    //     : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
     const handleDisplay = response => {
         const responseData = {
-            text: response.queryResult.fulfillmentText !== ''
-                ? response.queryResult.fulfillmentText
-                : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
+            text: response.queryResult.fulfillmentText !== '',
             isBot: true
         }
         setResponses([...responses, responseData])
-        console.log('responses', responses)
     }
 
     const handleMessageSend = message => {
@@ -40,7 +48,10 @@ const Chat = props => {
             .then(({data}) => {
                 console.log('response', data)
                 handleDisplay(data)
-            }).catch(error => console.log('ERROR:', error))
+            }).catch(error => {
+                console.log('ERROR:', error)
+                handleDisplay(defaultPhrase)
+            })
     }
 
     const handleTyping = async event => setCurrentMessage(event.target.value)
