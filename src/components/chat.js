@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
+import useStayScrolled from 'react-stay-scrolled'
 import axios from 'axios'
 import '../style.css'
 
@@ -6,9 +7,18 @@ import Messages from './messages'
 
 const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
 
-const Chat = props => {
+const defaultPhrase = {response:
+    {queryResult:
+        {fulfillmentText:
+            "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
+        }
+    }
+}
 
-    const backendURL = 'https://covid-nurse-bot.herokuapp.com/serve'
+const backendURL = 'https://covid-nurse-bot.herokuapp.com/serve'
+
+
+const Chat = props => {
 
     const [waiting, setWaiting] = useState(false)
     const [responses, setResponses] = useState([welcomeMessage])
@@ -16,13 +26,10 @@ const Chat = props => {
 
     const awaitingBot = waiting === true;
 
-    const defaultPhrase = {response:
-        {queryResult:
-            {fulfillmentText:
-                "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
-            }
-        }
-    }
+    const listRef = useRef()
+    const { stayScrolled } = useStayScrolled(listRef)
+
+    useLayoutEffect(() => stayScrolled(), [responses.length])
 
     useEffect(() => handleMessageSend(currentMessage), [awaitingBot])
 
@@ -71,7 +78,7 @@ const Chat = props => {
 
     return (
         <div className="messagesContainer">
-            <Messages messages={responses} />
+            <Messages messages={responses} listRef={listRef}/>
             <div className="inputSection">
                 <input
                     type="text"
