@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
-import useStayScrolled from 'react-stay-scrolled'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import '../style.css'
-
 import Messages from './messages'
 
 const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
@@ -24,12 +22,13 @@ const Chat = props => {
 
     const awaitingBot = waiting === true;
 
-    const listRef = useRef()
-    const { stayScrolled } = useStayScrolled(listRef)
+    const ref = useRef(false)
 
-    useLayoutEffect(() => stayScrolled(), [responses.length])
-
-    useEffect(() => handleMessageSend(currentMessage), [awaitingBot])
+    useEffect(() => {
+        ref.current
+            ? handleMessageSend(currentMessage)
+            : ref.current = true
+    }, [awaitingBot])
 
     // text: response.queryResult.fulfillmentText !== ''
     //     ? response.queryResult.fulfillmentText
@@ -75,8 +74,8 @@ const Chat = props => {
     }
 
     return (
-        <div className="messagesContainer">
-            <Messages messages={responses} listRef={listRef}/>
+        <div className="messagesContainer" ref={ref}>
+            <Messages messages={responses} />
             <div className="inputSection">
                 <input
                     type="text"

@@ -1,9 +1,9 @@
 import React from 'react'
 import '../style.css'
 
-const Message = ({ message }) => {
+const Message = ({ message, key }) => {
     return (
-        <span className="messageCard">
+        <span className="messageCard" key={key}>
             {message.isBot
                 ? ( <div className="botCard">
                     <p style={{
@@ -29,7 +29,8 @@ const Message = ({ message }) => {
                         {message.text}
                     </p>
                 </div>
-            )}
+                )
+            }
         </span>
     );
 }
