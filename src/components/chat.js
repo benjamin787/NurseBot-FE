@@ -7,11 +7,9 @@ import Messages from './messages'
 
 const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
 
-const defaultPhrase = {response:
-    {queryResult:
-        {fulfillmentText:
-            "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
-        }
+const defaultPhrase = {queryResult:
+    {fulfillmentText:
+        "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
     }
 }
 
@@ -38,7 +36,7 @@ const Chat = props => {
     //     : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
     const handleDisplay = response => {
         const responseData = {
-            text: response.queryResult.fulfillmentText !== '',
+            text: response.queryResult.fulfillmentText,
             isBot: true
         }
         setResponses([...responses, responseData])
