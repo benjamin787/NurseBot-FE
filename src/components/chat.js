@@ -20,15 +20,11 @@ const Chat = props => {
     const [responses, setResponses] = useState([welcomeMessage])
     const [currentMessage, setCurrentMessage] = useState('')
 
-    const awaitingBot = waiting === true;
-
     const ref = useRef(false)
 
     useEffect(() => {
-        ref.current
-            ? handleMessageSend(currentMessage)
-            : ref.current = true
-    }, [awaitingBot])
+        if (waiting) handleMessageSend(currentMessage)
+    }, [waiting])
 
     // text: response.queryResult.fulfillmentText !== ''
     //     ? response.queryResult.fulfillmentText
@@ -39,6 +35,7 @@ const Chat = props => {
             isBot: true
         }
         setResponses([...responses, responseData])
+        setWaiting(false)
     }
 
     const handleMessageSend = message => {
