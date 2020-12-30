@@ -38,13 +38,10 @@ header > h1 {
 .icon {
     color: hsl(186, 43%, 47%);
     transform: scale(2.1);
-    /* width: 4rem;
-    height: auto; */
 }
 
 h1, p {
     font-family: Lato;
-    /* text-align: center; */
 }
 
 .messagesContainer {

@@ -26,9 +26,6 @@ const Chat = props => {
         if (waiting) handleMessageSend(currentMessage)
     }, [waiting])
 
-    // text: response.queryResult.fulfillmentText !== ''
-    //     ? response.queryResult.fulfillmentText
-    //     : "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling.",
     const handleDisplay = response => {
         const responseData = {
             text: response.queryResult.fulfillmentText,
@@ -46,13 +43,14 @@ const Chat = props => {
         setCurrentMessage('')
         axios
             .post(backendURL, post)
-            .then(({data}) => {
-                console.log('response', data)
-                handleDisplay(data)
-            }).catch(error => {
-                console.log('ERROR:', error)
-                handleDisplay(defaultPhrase)
-            })
+            .then(({data}) => console.log(data))
+            // .then(({data}) => {
+            //     console.log('response', data)
+            //     handleDisplay(data)
+            // }).catch(error => {
+            //     console.log('ERROR:', error)
+            //     handleDisplay(defaultPhrase)
+            // })
     }
 
     const handleTyping = async event => setCurrentMessage(event.target.value)

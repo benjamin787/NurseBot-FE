@@ -17,7 +17,6 @@ const Messages = ({ messages }) => {
             {messages.map((message, i) => {
                 return <Message
                     key={i}
-                    // key={(Math.floor(Math.random() * 764) + 2)}
                     message={message}
                 />
             })}
