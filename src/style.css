@@ -23,7 +23,6 @@ header > h1 {
 }
 
 .Fauci {
-    /* border: 1px solid #ddd; */
     border-radius: 50%;
     margin-top: 2rem;
     margin-right: 5rem;
@@ -62,17 +61,15 @@ h1, p {
     margin-right: auto;
 }
 
+.messagesContainer:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 footer {
     grid-column: 1 / 7;
     grid-row: 6;
     border-top: solid;
 }
-
-/* On mouse-over, add a deeper shadow */
-.messagesContainer:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
 
 .heading {
     font-size: 30px;
@@ -83,6 +80,10 @@ footer {
 
 .messagesSection {
     height: 80%;
+    margin-top: 20px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .messageInputField {
@@ -112,45 +113,30 @@ footer {
     padding-bottom: 13px;
     border-top: dashed; 
     border-radius: 20px;
+    background-color: hsl(0,0%,97%);
 }
 
-.messagesSection {
-    /* min-height: 70vh;
-    max-height: 70vh; */
-    margin-top: 20px;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Message component styles here 👇 */
-.botCard {
-    width: 60%;
-    border-bottom-right-radius: 30px 30px;
-    border-top-right-radius: 30px 30px;
-    border-bottom-left-radius: 30px 30px;
-    background-color: hsl(147, 49%, 49%);
-    margin-left: 5px;
-    color: white;
-    margin-bottom: 4px;
-    padding: 2px;
-    align-items: left;
-}
-
-.userCard {
+.messageCard {
     width: 60%;
     border-bottom-right-radius: 30px 30px;
     border-top-left-radius: 30px 30px;
     border-bottom-left-radius: 30px 30px;
-    background-color: hsl(186, 70%, 32%);
-    margin-right: 5px;
+    padding: 40px;
     color: white;
-    align-items: right;
-    float: right;
 }
 
-.messageCard {
-    padding: 40px;
+.botCard {
+    background-color: hsl(147, 49%, 49%);
+    margin-left: 5px;
+    /* margin-bottom: 4px; */
+    align-items: left;
+}
+
+.userCard {
+    background-color: hsl(186, 70%, 32%);
+    margin-right: 5px;
+    align-items: right;
+    float: right;
 }
 
 @media only screen and (min-width: 992px) {
