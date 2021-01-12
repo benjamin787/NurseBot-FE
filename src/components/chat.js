@@ -5,11 +5,11 @@ import Messages from './messages'
 
 const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
 
-// const defaultPhrase = {queryResult:
-//     {fulfillmentText:
-//         "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
-//     }
-// }
+const defaultPhrase = {queryResult:
+    {fulfillmentText:
+        "Sorry, I didn't catch that. Can you repeat, please? And stop mumbling."
+    }
+}
 
 const backendURL = 'https://covid-nurse-bot.herokuapp.com/serve'
 
@@ -26,14 +26,14 @@ const Chat = props => {
         if (waiting) handleMessageSend(currentMessage)
     }, [waiting, currentMessage])
 
-    // const handleDisplay = response => {
-    //     const responseData = {
-    //         text: response.queryResult.fulfillmentText,
-    //         isBot: true
-    //     }
-    //     setResponses([...responses, responseData])
-    //     setWaiting(false)
-    // }
+    const handleDisplay = response => {
+        const responseData = {
+            text: response.queryResult.fulfillmentText,
+            isBot: true
+        }
+        setResponses([...responses, responseData])
+        setWaiting(false)
+    }
 
     const handleMessageSend = message => {
         const post = { 
@@ -44,14 +44,8 @@ const Chat = props => {
         axios
             .post(backendURL, post)
             .then(({data}) => console.log(data))
-            .catch(error => console.log('ERRORERROR :: ',error))
-            // .then(({data}) => {
-            //     console.log('response', data)
-            //     handleDisplay(data)
-            // }).catch(error => {
-            //     console.log('ERROR:', error)
-            //     handleDisplay(defaultPhrase)
-            // })
+            .then(({data}) => handleDisplay(data))
+            .catch(error => handleDisplay(defaultPhrase))
     }
 
     const handleTyping = async event => setCurrentMessage(event.target.value)
