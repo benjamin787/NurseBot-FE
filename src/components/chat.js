@@ -3,7 +3,10 @@ import axios from 'axios'
 import '../style.css'
 import Messages from './messages'
 
-const welcomeMessage = {text: 'Welcome! How can I help?',isBot: true}
+const welcomeMessage = {
+    text: "Welcome! I may take a few seconds to wake up. I'm sorry, it's been very busy. How can I help?",
+    isBot: true
+}
 
 const defaultPhrase = {queryResult:
     {fulfillmentText:
@@ -22,10 +25,7 @@ const Chat = props => {
 
     const ref = useRef(false)
 
-    useEffect(() => {
-        if (waiting) handleMessageSend(currentMessage)
-    }, [waiting, currentMessage])
-
+    
     const handleDisplay = response => {
         const responseData = {
             text: response.queryResult.fulfillmentText,
@@ -34,7 +34,7 @@ const Chat = props => {
         setResponses([...responses, responseData])
         setWaiting(false)
     }
-
+    
     const handleMessageSend = message => {
         const post = { 
             headers: {"Access-Control-Allow-Origin": "https://covid-nurse-bot.web.app"},
@@ -42,11 +42,15 @@ const Chat = props => {
         }
         setCurrentMessage('')
         axios
-            .post(backendURL, post)
-            .then(({data}) => console.log(data))
-            .then(({data}) => handleDisplay(data))
-            .catch(error => handleDisplay(defaultPhrase))
+        .post(backendURL, post)
+        .then(({data}) => console.log(data))
+        .then(({data}) => handleDisplay(data))
+        .catch(error => handleDisplay(defaultPhrase))
     }
+
+    useEffect(() => {
+        if (waiting) handleMessageSend(currentMessage)
+    }, [waiting, currentMessage])
 
     const handleTyping = async event => setCurrentMessage(event.target.value)
     

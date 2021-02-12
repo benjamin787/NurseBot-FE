@@ -23,6 +23,10 @@ header > h1 {
     grid-row: 4;
 }
 
+.clickaway {
+    padding: 10px;
+}
+
 .Fauci {
     border-radius: 50%;
     margin-top: 2rem;

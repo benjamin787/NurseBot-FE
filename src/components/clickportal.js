@@ -20,7 +20,7 @@ export default function ClickPortal() {
 
     return (
         <div>
-            <ClickAwayListener onClickAway={handleClickAway} >
+            <ClickAwayListener className='clickaway' onClickAway={handleClickAway} >
                 <div>
                     <MenuBookIcon type='button' className='icon' fontSize='large' onClick={handleClick} >
                         popover here
@@ -32,7 +32,7 @@ export default function ClickPortal() {
                     ) : null}
                 </div>
             </ClickAwayListener>
-            <ClickAwayListener onClickAway={handleClickAway} >
+            <ClickAwayListener className='clickaway' onClickAway={handleClickAway} >
                 <div>
                     <AttachFileIcon type='button' className='icon' fontSize='large' onClick={handleClick2} >
                         popover here
