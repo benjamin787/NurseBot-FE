@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# NurseBot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A react app available **[here](http://covid-nurse-bot.web.app)** that hosts a chatbot for Covid-19-related information.  The goal is to provide a central location for references so people don't need a dozen tabs open to find what they need. These references are to be stored in menus on the left, some constant and some based on user input.
 
-## Available Scripts
+### Prerequisites
 
-In the project directory, you can run:
+Before you continue, please ensure you have installed the latest version of React.
 
-### `yarn start`
+### Installation && Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Click [here](http://covid-nurse-bot.web.app) to see it as is.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Following the traditional fork + clone, run *npm install* so you can serve locally.
 
-### `yarn test`
+CLI commands (check package.json scripts) *npm build | test | start* that will be useful.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See NurseBot_BE for the Dialogflow integration and message formatting.
 
-### `yarn build`
+## Contributions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Feel the urge to make this look spiffy? Please, please, please do! Help streamline the process with detailed messages when you make the pull request.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Author
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Just lonely ol' me for now! Would love to hear from you with contributions and suggestions.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+My contact info is available on my Github profile - e-mail or linkedin works best!
